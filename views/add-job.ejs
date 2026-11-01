@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Job Posting</title>
+    <script src="scripts/validation.js" defer></script>
+    <link rel="stylesheet" href="styles/home.css">
 </head>
 <body>
 
@@ -16,13 +18,15 @@
     <div class="main">
         <h1>Add a Job Posting</h1>
 
-        <form action="/submit-job" method="post" class="job-form">
+        <form action="/submit-job" method="post" id="job-form" novalidate>
 
             <label for="title">Job Title</label>
             <input type="text" id="title" name="title">
+            <span class="error" id="err-title">Please enter a job title.</span>
 
             <label for="company">Company Name</label>
             <input type="text" id="company" name="company">
+            <span class="error" id="err-company">Please enter a company name.</span>
 
             <label for="tradeArea">Trade Area</label>
             <select id="tradeArea" name="tradeArea">
@@ -33,24 +37,30 @@
                 <option value="Carpentry">Carpentry</option>
                 <option value="Mechatronics">Mechatronics</option>
             </select>
+            <span class="error" id="err-tradeArea">Please select a trade area.</span>
 
             <label for="location">Location</label>
             <input type="text" id="location" name="location" >
+            <span class="error" id="err-location">Please enter a location.</span>
 
             <fieldset>
                 <legend>Employment Type</legend>
                 <label><input type="radio" name="jobType" value="Full Time" > Full Time</label>
                 <label><input type="radio" name="jobType" value="Part Time"> Part Time</label>
+                <span class="error" id="err-jobType">Please select an employment type.</span>
             </fieldset>
 
             <label for="postDate">Post Date</label>
             <input type="date" id="postDate" name="postDate" >
+            <span class="error" id="err-postDate">Please enter a post date.</span>
 
             <label for="expirationDate">Expiration Date</label>
             <input type="date" id="expirationDate" name="expirationDate" >
+            <span class="error" id="err-expirationDate">Please enter a valid expiration date.</span>
 
             <label for="applicationUrl">Application URL</label>
             <input type="url" id="applicationUrl" name="applicationUrl">
+            <span class="error" id="err-applicationUrl">Please enter a valid application URL.</span>
 
             <button type="submit">Post Job</button>
 
