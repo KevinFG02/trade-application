@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Job Posting</title>
+</head>
+<body>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/add-job">Add Job</a>
+        <a href="/jobs">View Jobs</a>
+    </nav>
+
+    <div class="main">
+        <h1>Add a Job Posting</h1>
+
+        <form action="/submit-job" method="post" class="job-form">
+
+            <label for="title">Job Title</label>
+            <input type="text" id="title" name="title">
+
+            <label for="company">Company Name</label>
+            <input type="text" id="company" name="company">
+
+            <label for="tradeArea">Trade Area</label>
+            <select id="tradeArea" name="tradeArea">
+                <option value="">-- Select a trade --</option>
+                <option value="Welding">Welding</option>
+                <option value="Automotive">Automotive</option>
+                <option value="Manufacturing">Manufacturing</option>
+                <option value="Carpentry">Carpentry</option>
+                <option value="Mechatronics">Mechatronics</option>
+            </select>
+
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" >
+
+            <fieldset>
+                <legend>Employment Type</legend>
+                <label><input type="radio" name="jobType" value="Full Time" > Full Time</label>
+                <label><input type="radio" name="jobType" value="Part Time"> Part Time</label>
+            </fieldset>
+
+            <label for="postDate">Post Date</label>
+            <input type="date" id="postDate" name="postDate" >
+
+            <label for="expirationDate">Expiration Date</label>
+            <input type="date" id="expirationDate" name="expirationDate" >
+
+            <label for="applicationUrl">Application URL</label>
+            <input type="url" id="applicationUrl" name="applicationUrl">
+
+            <button type="submit">Post Job</button>
+
+        </form>
+    </div>
+</body>
+</html>
