@@ -1,11 +1,6 @@
 :root {
-    --primary: rgb(60, 193, 80);
+    --sect-border: rgb(180, 238, 180);
 }
-
-body, h1, h2, nav a, button {
-    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-
 
 .error{
     display: none;
@@ -23,7 +18,6 @@ body, h1, h2, nav a, button {
     "submit submit submit submit";
     grid-template-columns: 2fr 1fr 1fr 2fr;
     grid-template-rows: 1fr 1fr 1fr auto;
-    gap: 5px;
 }
 
 #main h1 {
@@ -31,7 +25,7 @@ body, h1, h2, nav a, button {
 }
 
 #job-form fieldset {
-    border: 1px solid var(--primary);
+    border: 1px solid var(--sect-border);
 }
 
 #job-form label {
@@ -72,6 +66,7 @@ body, h1, h2, nav a, button {
 
 #title, #company, #tradeArea, #location, #postDate, #expirationDate, #applicationUrl {
     width: 100%;
+    padding: 10px 0;
 }
 
 #submit {
@@ -81,6 +76,7 @@ body, h1, h2, nav a, button {
     border: none;
     padding: 0.75rem;
     font-size: 1rem;
+    border-radius: 1rem;
 }
 
 @media (max-width: 700px) {

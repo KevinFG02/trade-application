@@ -1,5 +1,5 @@
 :root {
-    --primary: rgb(60, 193, 80);
+    --primary: #167216;
 }
 
 body, h1, h2, nav a, button {
@@ -14,11 +14,11 @@ body{
     max-width: 10%;
 }
 
-nav {
+#site-nav {
     background-color: var(--primary);
     display: flex;
     justify-content: space-evenly;
-    padding: 0 1rem;
+    padding: 1rem;
 }
 
 nav a {
@@ -49,4 +49,8 @@ main section {
     margin: 0 auto;
     background-color: white;
     margin: .5rem auto 0 auto;
+}
+
+#main {
+    margin: 10px;
 }
