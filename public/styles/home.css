@@ -1,0 +1,48 @@
+:root {
+    --primary: rgb(60, 193, 80);
+}
+
+body{
+    margin: 0;
+}
+
+#logo {
+    max-width: 10%;
+}
+
+nav {
+    background-color: var(--primary);
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    background-color: white;
+    width: 50%;
+    margin: 1rem auto 0 auto;
+    border-top: 2px solid var(--primary);
+    border-right: 2px solid var(--primary);
+    border-left: 2px solid var(--primary);
+}
+
+main section {
+    width: 50%;
+    background-color: var(--primary);
+    border: 2px solid var(--primary);;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.recentJob {
+    width: 70%;
+    margin: 0 auto;
+    background-color: white;
+    margin: .5rem auto 0 auto;
+}

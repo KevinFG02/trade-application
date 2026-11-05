@@ -20,6 +20,7 @@
   "homepage": "https://github.com/KevinFG02/trade-application#readme",
   "dependencies": {
     "ejs": "^7.0.2",
-    "express": "^5.3.0"
+    "express": "^5.3.0",
+    "nodemon": "^3.1.14"
   }
 }
