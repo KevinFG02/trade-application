@@ -45,12 +45,14 @@ document.getElementById("job-form").onsubmit = () => {
         isValid = false;
     }
 
+    // Check that expiration date is after post date
     let expirationDate = document.getElementById("expirationDate").value;
     if (expirationDate === "" || expirationDate < postDate) {
         document.getElementById("err-expirationDate").style.display = "block";
         isValid = false;
     }
 
+    // Only allow real and secure links so students are sent to real employer pages
     let applicationUrl = document.getElementById("applicationUrl").value.trim();
     if (applicationUrl === "") {
         document.getElementById("err-applicationUrl").style.display = "block";
@@ -63,6 +65,8 @@ document.getElementById("job-form").onsubmit = () => {
     return isValid;
 }
 
+
+// Clears the Error Messages when the user resubmits the form
 function clearErrorMessages() {
     let errors = document.getElementsByClassName("error");
     for (let i = 0; i < errors.length; i++) {
