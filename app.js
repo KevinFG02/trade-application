@@ -35,8 +35,6 @@ app.post('/submit-job', (req, res) => {
     jobs.push(job);
 
     res.render('confirm', {jobs});
-
-    console.log(jobs);
 });
 
 app.get('/jobs', (req, res) => {
