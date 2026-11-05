@@ -21,7 +21,7 @@ app.get('/add-job', (req, res) => {
 });
 
 app.get('/confirm', (req, res) => {
-    res.render('confirm');
+    res.render('confirm', {jobs});
 });
 
 app.post('/submit-job', (req, res) => {

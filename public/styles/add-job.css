@@ -51,3 +51,12 @@
 #submit {
     grid-area: submit;
 }
+
+@media (max-width: 700px) {
+    #job-form {
+        grid-template-areas:
+        "title" "company" "trade" "loc" "type" "post" "exp" "url" "submit";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+}
