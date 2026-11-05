@@ -26,29 +26,43 @@ nav a {
     color: white;
 }
 
-#pageTitle {
+.title {
     text-align: center;
     background-color: white;
-    width: 50%;
+    width: 70%;
     margin: 1rem auto 0 auto;
     border-top: 2px solid var(--primary);
     border-right: 2px solid var(--primary);
     border-left: 2px solid var(--primary);
 }
 
-main section {
-    width: 50%;
+main {
+    width: 90%;
     background-color: var(--primary);
     border: 2px solid var(--primary);;
-    margin: 0 auto;
+    margin: 1rem auto;
     padding: 1rem 0;
+    display: grid;
+    grid-template-areas: "recent-jobs announcements";
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr;
+
+    /* media query for mobile layout */
+    @media (max-width: 700px) {
+    grid-template-areas:
+    "recent-jobs"
+    "announcements";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    }
 }
 
-.recentJob {
+.recentJob, .announcement {
     width: 70%;
     margin: 0 auto;
     background-color: white;
     margin: .5rem auto 0 auto;
+    padding: 5px;
 }
 
 #main {
