@@ -1,0 +1,53 @@
+.error{
+    display: none;
+    color: red;
+}
+
+#job-form {
+    width: 85%;
+    display: grid;
+    grid-template-areas: 
+    "title loc loc trade"
+    "company company url url"
+    "type post post exp"
+    "submit submit submit submit";
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr auto;
+    gap: 5px;
+}
+
+#title-sect {
+    grid-area: title;
+}
+
+#company-sect {
+    grid-area: company;
+}
+
+#trade-sect {
+    grid-area: trade;
+}
+
+#loc-sect {
+    grid-area: loc;
+}
+
+#type-sect {
+    grid-area: type;
+}
+
+#post-sect {
+    grid-area: post;
+}
+
+#exp-sect {
+    grid-area: exp;
+}
+
+#url-sect {
+    grid-area: url;
+}
+
+#submit {
+    grid-area: submit;
+}

@@ -6,7 +6,7 @@
     <title>Add Job Posting</title>
     <script src="scripts/validation.js" defer></script>
     <link rel="icon" type="image/png" href="/images/favicon.png">
-    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/add-job.css">
 </head>
 <body>
 
@@ -16,54 +16,68 @@
         <a href="/jobs">View Jobs</a>
     </nav>
 
-    <div class="main">
+    <div id="main">
         <h1>Add a Job Posting</h1>
 
         <form action="/submit-job" method="post" id="job-form" novalidate>
 
-            <label for="title">Job Title</label>
-            <input type="text" id="title" name="title">
-            <span class="error" id="err-title">Please enter a job title.</span>
+            <fieldset id="title-sect">
+                <legend>Job Title</legend>
+                <input type="text" id="title" name="title">
+                <span class="error" id="err-title">Please enter a job title.</span>
+            </fieldset>
 
-            <label for="company">Company Name</label>
-            <input type="text" id="company" name="company">
-            <span class="error" id="err-company">Please enter a company name.</span>
+            <fieldset id="company-sect">
+                <legend>Company Name</legend>
+                <input type="text" id="company" name="company">
+                <span class="error" id="err-company">Please enter a company name.</span>
+            </fieldset>
 
-            <label for="tradeArea">Trade Area</label>
-            <select id="tradeArea" name="tradeArea">
-                <option value="">-- Select a trade --</option>
-                <option value="Welding">Welding</option>
-                <option value="Automotive">Automotive</option>
-                <option value="Manufacturing">Manufacturing</option>
-                <option value="Carpentry">Carpentry</option>
-                <option value="Mechatronics">Mechatronics</option>
-            </select>
-            <span class="error" id="err-tradeArea">Please select a trade area.</span>
+            <fieldset id="trade-sect">
+                <legend>Trade Area</legend>
+                <select id="tradeArea" name="tradeArea">
+                    <option value="">-- Select a trade --</option>
+                    <option value="Welding">Welding</option>
+                    <option value="Automotive">Automotive</option>
+                    <option value="Manufacturing">Manufacturing</option>
+                    <option value="Carpentry">Carpentry</option>
+                    <option value="Mechatronics">Mechatronics</option>
+                </select>
+                <span class="error" id="err-tradeArea">Please select a trade area.</span>
+            </fieldset>
 
-            <label for="location">Location</label>
-            <input type="text" id="location" name="location" >
-            <span class="error" id="err-location">Please enter a location.</span>
+            <fieldset id="loc-sect">
+                <legend>Location</legend>
+                <input type="text" id="location" name="location" >
+                <span class="error" id="err-location">Please enter a location.</span>
+            </fieldset>
 
-            <fieldset>
+            <fieldset id="type-sect">
                 <legend>Employment Type</legend>
                 <label><input type="radio" name="jobType" value="Full Time" > Full Time</label>
                 <label><input type="radio" name="jobType" value="Part Time"> Part Time</label>
                 <span class="error" id="err-jobType">Please select an employment type.</span>
             </fieldset>
 
-            <label for="postDate">Post Date</label>
-            <input type="date" id="postDate" name="postDate" >
-            <span class="error" id="err-postDate">Please enter a post date.</span>
+            <fieldset id="post-sect">
+                <legend>Post Date</legend>
+                <input type="date" id="postDate" name="postDate" >
+                <span class="error" id="err-postDate">Please enter a post date.</span>
+            </fieldset>
 
-            <label for="expirationDate">Expiration Date</label>
-            <input type="date" id="expirationDate" name="expirationDate" >
-            <span class="error" id="err-expirationDate">Please enter a valid expiration date.</span>
+            <fieldset id="exp-sect">
+                <legend>Expiration Date</legend>
+                <input type="date" id="expirationDate" name="expirationDate" >
+                <span class="error" id="err-expirationDate">Please enter a valid expiration date.</span>
+            </fieldset>
 
-            <label for="applicationUrl">Application URL</label>
-            <input type="url" id="applicationUrl" name="applicationUrl">
-            <span class="error" id="err-applicationUrl">Please enter a valid application URL.</span>
+            <fieldset id="url-sect">
+                <legend>Application URL</legend>
+                <input type="url" id="applicationUrl" name="applicationUrl">
+                <span class="error" id="err-applicationUrl">Please enter a valid application URL.</span>
+            </fieldset>
 
-            <button type="submit">Post Job</button>
+            <button type="submit" id="submit">Post Job</button>
 
         </form>
     </div>
