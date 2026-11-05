@@ -36,17 +36,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><%= job.title %></td>
-                        <td><%= job.company %></td>
-                        <td><%= job.tradeArea %></td>
-                        <td><%= job.location %></td>
-                        <td><%= job.jobType %></td>
-                        <td><%= job.postDate %></td>
-                        <td><%= job.expirationDate %></td>
-                        <td><a href="<%= job.applicationUrl %>" target="_blank">Apply</a></td>
-                        <td><%= job.timestamp.toLocaleString() %></td>
-                    </tr>
+                    <% jobs.forEach(job => { %>
+                        <tr>
+                            <td><%= job.title %></td>
+                            <td><%= job.company %></td>
+                            <td><%= job.tradeArea %></td>
+                            <td><%= job.location %></td>
+                            <td><%= job.jobType %></td>
+                            <td><%= job.postDate %></td>
+                            <td><%= job.expirationDate %></td>
+                            <td><a href="<%= job.applicationUrl %>" target="_blank">Apply</a></td>
+                            <td><%= job.timestamp.toLocaleString() %></td>
+                        </tr>
+                    <% }); %>
                 </tbody>
             </table>
 

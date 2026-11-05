@@ -1,12 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="/images/favicon.png">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="/images/favicon.png">
+        <link rel="stylesheet" href="styles/home.css">
+        <title>Document</title>
+        <!-- Add data table resources -->
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://cdn.datatables.net/3.1.4/js/dataTables.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/3.1.4/css/dataTables.dataTables.min.css">
+    </head>
+    <body>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/add-job">Add Job</a>
+            <a href="/jobs">View Jobs</a>
+        </nav>
+
+        <div class="main">
+            <table id="job-table" class="display">
+                <thead>
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Company</th>
+                        <th>Trade Area</th>
+                        <th>Location</th>
+                        <th>Type</th>
+                        <th>Post Date</th>
+                        <th>Expires</th>
+                        <th>Application</th>
+                        <th>Submitted</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% jobs.forEach(job => { %>
+                        <tr>
+                            <td><%= job.title %></td>
+                            <td><%= job.company %></td>
+                            <td><%= job.tradeArea %></td>
+                            <td><%= job.location %></td>
+                            <td><%= job.jobType %></td>
+                            <td><%= job.postDate %></td>
+                            <td><%= job.expirationDate %></td>
+                            <td><a href="<%= job.applicationUrl %>" target="_blank">Apply</a></td>
+                            <td><%= job.timestamp.toLocaleString() %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+
+            <p>
+                <a href="/add-job">Add another job</a> |
+                <a href="/jobs">View all jobs</a>
+            </p>
+        </div>
+
+        <script>
+            new DataTable('#job-table');
+        </script>
+    </body>
 </html>
