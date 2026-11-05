@@ -58,7 +58,12 @@
         </div>
 
         <script>
-            new DataTable('#job-table');
+            // Allow sorting but not for the application column
+            new DataTable('#job-table', {
+                columnDefs: [
+                    { targets: 7, orderable: false }
+                ]
+            });
         </script>
     </body>
 </html>
