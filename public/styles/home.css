@@ -22,7 +22,7 @@ nav a {
     color: white;
 }
 
-h1 {
+#pageTitle {
     text-align: center;
     background-color: white;
     width: 50%;

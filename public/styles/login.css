@@ -1,0 +1,58 @@
+:root {
+    --primary: rgb(60, 193, 80);
+}
+
+body{
+    margin: 0;
+}
+
+#logo {
+    max-width: 10%;
+}
+
+nav {
+    background-color: var(--primary);
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+.titlePage {
+    background-color: var(--primary);
+    margin: 0;
+    text-align: center;
+    color: white;
+    padding: 1rem 0;
+
+}
+
+#login-form {
+    width: 60%;
+    margin: 1rem auto;
+    background-color: var(--primary);
+}
+
+#login-fieldset {
+    border: none;
+}
+
+label {
+    color: white;
+}
+
+#err-login {
+    display: none;
+}
+
+button {
+    margin: 0 auto;
+}
+
+#alt-link {
+    text-align: center;
+}

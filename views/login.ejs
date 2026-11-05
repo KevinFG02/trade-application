@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="styles/login.css">
+</head>
+<body>
+    <img src="images/grc_logo.png" id="logo">
+    <nav>
+        <a href="/">Home</a>
+        <a href="/add-job">Add Job</a>
+        <a href="/jobs">View Jobs</a>
+    </nav>
+    
+    <main>
+        <h1 class="titlePage">Log-in</h1>
+    
+        <form action="/confirm" method="#" id="login-form">
+            <fieldset id="login-fieldset">
+                <label>Username: </label>
+                <input type="text" id="title" name="title"> <br>
+                <label>Password: </label>
+                <input type="text" id="title" name="title"> <br>
+                <span class="error" id="err-login">Username or Password is incorrect</span>
+            </fieldset>
+
+            <button type="submit" id="submit">Login</button>
+        </form>
+        <p id="alt-link"><a href="/" >Continue As A Without Account</a></p>
+    </main>
+</body>
+</html>
