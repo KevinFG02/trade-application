@@ -2,6 +2,11 @@
     --primary: rgb(60, 193, 80);
 }
 
+body, h1, h2, nav a, button {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+
 .error{
     display: none;
     color: red;
@@ -9,6 +14,7 @@
 
 #job-form {
     width: 85%;
+    margin: 0 auto;
     display: grid;
     grid-template-areas: 
     "title loc loc trade"
@@ -18,6 +24,10 @@
     grid-template-columns: 2fr 1fr 1fr 2fr;
     grid-template-rows: 1fr 1fr 1fr auto;
     gap: 5px;
+}
+
+#main h1 {
+    text-align: center;
 }
 
 #job-form fieldset {
