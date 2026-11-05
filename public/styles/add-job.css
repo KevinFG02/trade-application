@@ -14,7 +14,7 @@ body, h1, h2, nav a, button {
 
 #job-form {
     width: 85%;
-    margin: 0 auto;
+    margin: 0 auto 1rem;
     display: grid;
     grid-template-areas: 
     "title loc loc trade"
@@ -68,6 +68,10 @@ body, h1, h2, nav a, button {
 
 #url-sect {
     grid-area: url;
+}
+
+#title, #company, #tradeArea, #location, #postDate, #expirationDate, #applicationUrl {
+    width: 100%;
 }
 
 #submit {
