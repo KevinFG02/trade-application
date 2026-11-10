@@ -29,8 +29,8 @@ document.getElementById("job-form").onsubmit = () => {
 
     let hourSelected = false;
     let hourOptions = document.getElementsByName("hourType");
-    for (let i = 0; i < typeOptions.length; i++) {
-        if (typeOptions[i].checked)
+    for (let i = 0; i < hourOptions.length; i++) {
+        if (hourOptions[i].checked)
             hourSelected = true;
     }
 
