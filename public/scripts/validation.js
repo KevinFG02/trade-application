@@ -27,6 +27,18 @@ document.getElementById("job-form").onsubmit = () => {
         isValid = false;
     }
 
+    let hourSelected = false;
+    let hourOptions = document.getElementsByName("hourType");
+    for (let i = 0; i < typeOptions.length; i++) {
+        if (typeOptions[i].checked)
+            hourSelected = true;
+    }
+
+    if (!hourSelected) {
+        document.getElementById("err-hourType").style.display = "block";
+        isValid = false;
+    }
+
     let typeSelected = false;
     let typeOptions = document.getElementsByName("jobType");
     for (let i = 0; i < typeOptions.length; i++) {
