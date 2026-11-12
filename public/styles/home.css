@@ -68,3 +68,21 @@ main {
 #main {
     margin: 10px;
 }
+
+#linkToGRC {
+    color: var(--primary)
+}
+
+footer {
+    display: grid;
+    grid-template-areas: 
+    "Area 1" "Area 2" "Area 3";
+    grid-template-columns: 1fr 3fr 1fr;
+    background-color: var(--primary);
+    color: white;
+}
+
+footer h3 {
+    font-size: .8rem;
+    text-align: center;
+}
