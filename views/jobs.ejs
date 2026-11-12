@@ -37,15 +37,15 @@
                 <tbody>
                     <% jobs.forEach(job => { %>
                         <tr>
-                            <td><%= job.title %></td>
+                            <td><%= job.jobTitle %></td>
                             <td><%= job.company %></td>
-                            <td><%= job.tradeArea %></td>
+                            <td><%= job.trade %></td>
                             <td><%= job.location %></td>
-                            <td><%= job.jobType %></td>
-                            <td><%= job.hourType %></td>
-                            <td><%= job.postDate %></td>
-                            <td><%= job.expirationDate %></td>
-                            <td><a href="<%= job.applicationUrl %>" target="_blank">Apply Now</a></td>
+                            <td><%= job.type %></td>
+                            <td><%= job.hours %></td>
+                            <td><%= job.posted %></td>
+                            <td><%= job.exp %></td>
+                            <td><a href="<%= job.appLink %>" target="_blank">Apply Now</a></td>
                         </tr>
                     <% }); %>
                 </tbody>
