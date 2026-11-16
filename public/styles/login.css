@@ -1,8 +1,12 @@
 :root {
-    --primary: rgb(60, 193, 80);
+    --primary: #167216;
 }
 
-body{
+body, h1, label, input, button, nav a {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
     margin: 0;
 }
 
@@ -14,7 +18,7 @@ nav {
     background-color: var(--primary);
     display: flex;
     justify-content: space-evenly;
-    padding: 0 1rem;
+    padding: 1rem;
 }
 
 nav a {
@@ -24,35 +28,56 @@ nav a {
 
 .titlePage {
     background-color: var(--primary);
-    margin: 0;
-    text-align: center;
     color: white;
+    text-align: center;
+    margin: 0;
     padding: 1rem 0;
-
 }
 
 #login-form {
-    width: 60%;
-    margin: 1rem auto;
-    background-color: var(--primary);
+    width: 90%;
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    border: 2px solid var(--primary);
 }
 
 #login-fieldset {
     border: none;
+    padding: 0;
 }
 
 label {
-    color: white;
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    margin-top: 0.4rem;
 }
 
 #err-login {
     display: none;
+    color: #b00020;
 }
 
 button {
-    margin: 0 auto;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.6rem;
+    color: white;
+    background-color: var(--primary);
+    border: none;
+    cursor: pointer;
 }
 
 #alt-link {
     text-align: center;
+}
+
+#alt-link a {
+    color: var(--primary);
 }
