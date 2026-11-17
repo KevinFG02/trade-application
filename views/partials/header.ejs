@@ -1,0 +1,18 @@
+<header id="site-header">
+    <a href="/"><img src="/images/grc_logo.png" id="logo" alt="Green River College"></a>
+
+    <nav id="site-nav">
+        <a href="/">Home</a>
+        <a href="/jobs">View Jobs</a>
+
+        <% if (typeof isAdmin !== 'undefined' && isAdmin) { %>
+            <a href="/add-job">Add Job</a>
+            <a href="/logout">Log out</a>
+        <% } else { %>
+            <a href="/login" id="login-link">
+                <img src="/images/login.jpg" id="login-img" alt="">
+                <span>Log in</span>
+            </a>
+        <% } %>
+    </nav>
+</header>

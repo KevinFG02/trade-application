@@ -14,16 +14,49 @@ body{
     max-width: 10%;
 }
 
+#site-header {
+    background-color: white;
+}
+
+#logo {
+    display: block;
+    max-width: 10%;
+    min-width: 120px;
+}
+
 #site-nav {
     background-color: var(--primary);
     display: flex;
     justify-content: space-evenly;
-    padding: 1rem;
+    align-items: center;
+    padding: 0.8rem 1rem;
 }
 
-nav a {
-    text-decoration: none;
+#site-nav a {
     color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+}
+
+#site-nav a:hover,
+#site-nav a:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#login-link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* This is what stops the image from filling the page */
+#login-img {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .title {
