@@ -83,7 +83,9 @@ app.post('/submit-job', async(req, res) => {
 });
 
 app.get('/jobs', async(req, res) => {
-    const [jobs] = await pool.query('SELECT * FROM active_postings');
+    const currDate = new Date();
+    const [jobs] = await pool.query(`SELECT * FROM active_postings
+                                     WHERE exp > CURRENT_DATE()`);
     res.render('jobs', {jobs});
 });
 
