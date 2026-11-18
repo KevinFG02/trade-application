@@ -89,8 +89,9 @@ app.post('/submit-job', async(req, res) => {
         // Execute the query with the parameters
         const [result] = await pool.execute(sql, params);
 
-        const [jobs] = await pool.query('SELECT * FROM active_postings');
-        res.render('confirm', {jobs});
+        res.render('confirm', { job });
+        //const [jobs] = await pool.query('SELECT * FROM active_postings');
+        //res.render('confirm', {jobs});
 
     } catch(err) {
         // If ANYTHING goes wrong, this runs
