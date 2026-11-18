@@ -97,9 +97,18 @@ app.post('/submit-job', async(req, res) => {
     }
 });
 
-app.get('/jobs', async(req, res) => {
-    const [jobs] = await pool.query('SELECT * FROM active_postings');
-    res.render('jobs', {jobs});
+app.get('/jobs', async (req, res) => {
+    try {
+        const [jobs] = await pool.query(
+            `SELECT * FROM active_postings
+            WHERE exp >= CURDATE()
+             ORDER BY posted DESC`
+        );
+        res.render('jobs', { jobs });
+    } catch (err) {
+        console.error('Error loading jobs:', err);
+        res.status(500).send('Sorry, we could not load the job listings. Please try again later.');
+    }
 });
 
 app.listen(PORT, () => {
