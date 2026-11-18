@@ -8,6 +8,8 @@ const app = express();
 
 const PORT = 3008;
 
+app.locals.isAdmin = false;
+
 const pool = mysql2.createPool({
     // These values come from the .env file
     host: process.env.DB_HOST,
@@ -34,6 +36,19 @@ app.get('/', (req, res) => {
 // Render the login page
 app.get('/login', (req, res) => {
     res.render('login');
+});
+
+app.post('/login', (req, res) => {
+    if (req.body.password === "admin") {
+        app.locals.isAdmin = true;
+        return res.redirect('/');
+    }
+    res.redirect('/');
+});
+
+app.get('/logout', (req, res) => {
+    app.locals.isAdmin = false;
+    res.redirect('/');
 });
 
 // Render the add-job page
