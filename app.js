@@ -8,13 +8,16 @@ const app = express();
 
 const PORT = 3008;
 
+app.locals.isAdmin = false;
+
 const pool = mysql2.createPool({
     // These values come from the .env file
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    port: process.env.DB_PORT
+    port: process.env.DB_PORT,
+    dateStrings: true
 }).promise();
 
 // Serve CSS, scripts, and images from the public folder
@@ -34,6 +37,19 @@ app.get('/', (req, res) => {
 // Render the login page
 app.get('/login', (req, res) => {
     res.render('login');
+});
+
+app.post('/login', (req, res) => {
+    if (req.body.password === "admin") {
+        app.locals.isAdmin = true;
+        return res.redirect('/');
+    }
+    res.redirect('/');
+});
+
+app.get('/logout', (req, res) => {
+    app.locals.isAdmin = false;
+    res.redirect('/');
 });
 
 // Render the add-job page
@@ -73,8 +89,9 @@ app.post('/submit-job', async(req, res) => {
         // Execute the query with the parameters
         const [result] = await pool.execute(sql, params);
 
-        const [jobs] = await pool.query('SELECT * FROM active_postings');
-        res.render('confirm', {jobs});
+        res.render('confirm', { job });
+        //const [jobs] = await pool.query('SELECT * FROM active_postings');
+        //res.render('confirm', {jobs});
 
     } catch(err) {
         // If ANYTHING goes wrong, this runs
@@ -82,11 +99,18 @@ app.post('/submit-job', async(req, res) => {
     }
 });
 
-app.get('/jobs', async(req, res) => {
-    const currDate = new Date();
-    const [jobs] = await pool.query(`SELECT * FROM active_postings
-                                     WHERE exp > CURRENT_DATE()`);
-    res.render('jobs', {jobs});
+app.get('/jobs', async (req, res) => {
+    try {
+        const [jobs] = await pool.query(
+            `SELECT * FROM active_postings
+            WHERE exp >= CURDATE()
+             ORDER BY posted DESC`
+        );
+        res.render('jobs', { jobs });
+    } catch (err) {
+        console.error('Error loading jobs:', err);
+        res.status(500).send('Sorry, we could not load the job listings. Please try again later.');
+    }
 });
 
 app.listen(PORT, () => {

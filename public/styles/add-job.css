@@ -1,89 +1,74 @@
-:root {
-    --sect-border: rgb(180, 238, 180);
-}
-
-.error{
-    display: none;
-    color: red;
-}
-
-#job-form {
-    width: 85%;
-    margin: 0 auto 1rem;
-    display: grid;
-    grid-template-areas: 
-    "title loc loc trade"
-    "company company url url"
-    "type post post exp"
-    "submit submit submit submit";
-    grid-template-columns: 2fr 1fr 1fr 2fr;
-    grid-template-rows: 1fr 1fr 1fr auto;
+body {
+    background-color: #f3f6f3;
 }
 
 #main h1 {
     text-align: center;
+    color: var(--primary);
+    margin: 2rem 0 1rem 0;
+}
+
+#job-form {
+    width: 90%;
+    max-width: 550px;
+    margin: 0 auto 2rem auto;
+    padding: 1.5rem 2rem;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 #job-form fieldset {
-    border: 1px solid var(--sect-border);
+    border: none;
+    margin: 0 0 1.2rem 0;
+    padding: 0;
+}
+
+#job-form legend {
+    padding: 0;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+#job-form input, #job-form select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.6rem;
+    font-size: 1rem;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+}
+
+#job-form input:focus, #job-form select:focus {
+    outline: none;
+    border-color: var(--primary);
 }
 
 #job-form label {
-    display: block;
+    display: inline-block;
+    margin-right: 1.5rem;
 }
 
-#title-sect {
-    grid-area: title;
-}
-
-#company-sect {
-    grid-area: company;
-}
-
-#trade-sect {
-    grid-area: trade;
-}
-
-#loc-sect {
-    grid-area: loc;
-}
-
-#type-sect {
-    grid-area: type;
-}
-
-#post-sect {
-    grid-area: post;
-}
-
-#exp-sect {
-    grid-area: exp;
-}
-
-#url-sect {
-    grid-area: url;
-}
-
-#title, #company, #tradeArea, #location, #postDate, #expirationDate, #applicationUrl {
-    width: 100%;
-    padding: 10px 0;
+.error {
+    display: none;
+    margin-top: 0.4rem;
+    color: #b00020;
+    font-size: 0.9rem;
 }
 
 #submit {
-    grid-area: submit;
-    background-color: var(--primary);
-    color: white;
-    border: none;
+    width: 100%;
     padding: 0.75rem;
     font-size: 1rem;
-    border-radius: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: var(--primary);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-@media (max-width: 700px) {
-    #job-form {
-        grid-template-areas:
-        "title" "company" "trade" "loc" "type" "post" "exp" "url" "submit";
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-    }
+#submit:hover {
+    background-color: #0f560f;
 }

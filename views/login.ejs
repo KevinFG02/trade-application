@@ -6,14 +6,10 @@
     <title>Login</title>
 
     <link rel="stylesheet" href="styles/login.css">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
 </head>
 <body>
-    <img src="/images/grc_logo.png" id="logo" alt="GRC logo">
-    <nav>
-        <a href="/">Home</a>
-        <a href="/add-job">Add Job</a>
-        <a href="/jobs">View Jobs</a>
-    </nav>
+    <%- include('partials/header') %>
     
     <main>
         <h1 class="titlePage">Log-in</h1>
@@ -23,7 +19,7 @@
                 <label>Username: </label>
                 <input type="text" id="username" name="username"> <br>
                 <label>Password: </label>
-                <input type="password" id="password" name="password"> <br>
+                <input type="text" id="password" name="password"> <br>
                 <span class="error" id="err-login">Username or Password is incorrect</span>
             </fieldset>
 

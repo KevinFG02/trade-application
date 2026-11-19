@@ -12,12 +12,7 @@
         <link rel="stylesheet" href="https://cdn.datatables.net/3.1.4/css/dataTables.dataTables.min.css">
     </head>
     <body>
-        <img src="/images/grc_logo.png" id="logo" alt="GRC logo">
-        <nav id="site-nav">
-            <a href="/">Home</a>
-            <a href="/add-job">Add Job</a>
-            <a href="/jobs">View Jobs</a>
-        </nav>
+        <%- include('partials/header') %>
 
         <div id="main">
             <table id="job-table" class="display">
@@ -53,7 +48,7 @@
             
             <p>
                 Additional information: 
-                <a id="linkToGRC" href="https://www.greenriver.edu/students/academics/areas-of-interest/program-maps/trades-industrial-tech-aviation-natural-resources/index.html" target="#">
+                <a id="linkToGRC" href="https://www.greenriver.edu/students/academics/areas-of-interest/program-maps/trades-industrial-tech-aviation-natural-resources/index.html" target="_blank">
                     Green River College Trade Programs
                 </a>
             </p>
@@ -66,7 +61,11 @@
             new DataTable('#job-table', {
                 columnDefs: [
                     { targets: 8, orderable: false }
-                ]
+
+                ],
+                order: [[6, 'desc']],
+
+                language: { emptyTable: 'There are no current job listings. Please check back soon!' }
             });
         </script>
     </body>
