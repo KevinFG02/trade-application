@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Admin Login</title>
 
     <link rel="stylesheet" href="styles/login.css">
     <link rel="icon" type="image/png" href="/images/favicon.png">
@@ -12,9 +12,10 @@
     <%- include('partials/header') %>
     
     <main>
-        <h1 class="titlePage">Log-in</h1>
-    
-         <form action="/login" method="post" id="login-form">
+
+        <form action="/login" method="post" id="login-form">
+            <h1 class="titlePage">Admin Log-in</h1>
+            
             <fieldset id="login-fieldset">
                 <label>Username: </label>
                 <input type="text" id="username" name="username"> <br>
@@ -29,7 +30,6 @@
 
             <button type="submit" id="submit">Login</button>
         </form>
-        <p id="alt-link"><a href="/" >Continue As A Guest</a></p>
     </main>
 </body>
 </html>

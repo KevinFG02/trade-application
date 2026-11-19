@@ -45,14 +45,13 @@ nav a {
     width: 90%;
     max-width: 400px;
     margin: 2rem auto;
-    padding: 1.5rem;
     box-sizing: border-box;
     border: 2px solid var(--primary);
 }
 
 #login-fieldset {
     border: none;
-    padding: 0;
+    padding: 1.5rem;
 }
 
 label {
@@ -92,4 +91,10 @@ button {
 .login-error {
     color: red;
     font-weight: bold;
+}
+
+#submit {
+    margin: 0 auto 1rem auto;
+    width: 80%;
+    display: block;
 }
