@@ -80,19 +80,19 @@ app.get('/login', (req, res) => {
 // Processes And Verifies The Login
 app.post('/login', (req, res) => {
     
-    const username = req.body.username;
-    const password = req.body.password;
+    // const username = req.body.username;
+    // const password = req.body.password;
 
-    if (username === process.env.ADMIN_USER &&
-        password === process.env.ADMIN_PASSWORD) {
+    // if (username === process.env.ADMIN_USER &&
+    //     password === process.env.ADMIN_PASSWORD) {
 
             req.session.loggedIn = true;
             app.locals.isAdmin = true;
 
             res.redirect('/');
-    } else {
-        res.render('login', { error: 'Invalid username or password'});
-    }
+    // } else {
+    //     res.render('login', { error: 'Invalid username or password'});
+    // }
 });
 
 // Ends Session And Sents User Back To Home Page
