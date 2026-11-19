@@ -56,8 +56,20 @@ function requireLogin(req, res, next) {
 }
 
 // Define routes for the application
-app.get('/', (req, res) => {
-    res.render('home');
+app.get('/', async (req, res) => {
+    try {
+        const [jobs] = await pool.query(
+            `SELECT jobTitle, company, location
+             FROM active_postings
+             WHERE exp >= CURDATE()
+             ORDER BY posted DESC
+             LIMIT 5`
+        );
+        res.render('home', { jobs });
+    } catch (err) {
+        console.error('Error loading recent jobs:', err);
+        res.render('home', { jobs: [] });
+    }
 });
 
 // Add a route for the login page
@@ -135,6 +147,7 @@ app.post('/submit-job', async(req, res) => {
     } catch(err) {
         // If ANYTHING goes wrong, this runs
         console.error('Error inserting submission:', err);
+        res.status(500).send('Sorry, we could not save your job listing. Please go back and try again.');
     }
 });
 

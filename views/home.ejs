@@ -12,56 +12,27 @@
     <body>
         <!-- Header -->
         <%- include('partials/header') %>
+
+        <section id="hero">
+            <h1>Trades Job Board</h1>
+            <p>Find jobs and internships in welding, automotive, manufacturing, carpentry and mechatronics.</p>
+        </section>
         
         <main>
-            <!-- Recent Posting Section-->
+            <!-- Recent Postings -->
             <section id="recentJobPosting">
-                <h1 class="title">Recent Jobs Posting</h1>
-                <div class="recentJob">
-                    <a href="/jobs">Job 1</a>
-                </div>
-                <div class="recentJob">
-                    <a href="/jobs">Job 2</a>
-                </div>
-                <div class="recentJob">
-                    <a href="/jobs">Job 3</a>
-                </div>
-                <div class="recentJob">
-                    <a href="/jobs">Job 4</a>
-                </div>
-                <div class="recentJob">
-                    <a href="/jobs">Job 5</a>
-                </div>
-            </section>
+                <h2 class="title">Recent Job Postings</h2>
 
-            <!-- Announcements Section -->
-            <section id="announcements">
-                <h1 class="title">Announcements</h1>
-                <div class="announcement">
-                    <p>
-                        Announcement A
-                    </p>
-                </div>
-                <div class="announcement">
-                    <p>
-                        Announcement B
-                    </p>
-                </div>
-                <div class="announcement">
-                    <p>
-                        Announcement C
-                    </p>
-                </div>
-                <div class="announcement">
-                    <p>
-                        Announcement D
-                    </p>
-                </div>
-                <div class="announcement">
-                    <p>
-                        Announcement E
-                    </p>
-                </div>
+                <% if (jobs.length === 0) { %>
+                    <p class="empty">No current job listings. Please check back soon!</p>
+                <% } %>
+
+                <% jobs.forEach(job => { %>
+                    <div class="recentJob">
+                        <a href="/jobs"><%= job.jobTitle %></a>
+                        <span><%= job.company %> · <%= job.location %></span>
+                    </div>
+                <% }); %>
             </section>
         </main>
         
