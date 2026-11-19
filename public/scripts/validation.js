@@ -3,30 +3,35 @@ document.getElementById("job-form").onsubmit = () => {
     clearErrorMessages();
     var isValid = true;
 
+    // Validates If The Title Input Is Empty
     let title = document.getElementById("title").value.trim();
     if (title === "") {
         document.getElementById("err-title").style.display = "block";
         isValid = false;
     }
 
+    // Validates If The Company Input Is Empty
     let company = document.getElementById("company").value.trim();
     if (company === "") {
         document.getElementById("err-company").style.display = "block";
         isValid = false;
     }
 
+    // Validates If A Trade Area Isn't Selected 
     let tradeArea = document.getElementById("tradeArea").value;
     if (tradeArea === "") {
         document.getElementById("err-tradeArea").style.display = "block";
         isValid = false;
     }
 
+    // Validates If The Location Input Is Emtpy
     let location = document.getElementById("location").value.trim();
     if (location === "") {
         document.getElementById("err-location").style.display = "block";
         isValid = false;
     }
 
+    // Validates If Hour Type Isn't Selected
     let hourSelected = false;
     let hourOptions = document.getElementsByName("hourType");
     for (let i = 0; i < hourOptions.length; i++) {
@@ -38,7 +43,8 @@ document.getElementById("job-form").onsubmit = () => {
         document.getElementById("err-hourType").style.display = "block";
         isValid = false;
     }
-
+    
+    // Validates If Job Tyoe Type Isn't Selected
     let typeSelected = false;
     let typeOptions = document.getElementsByName("jobType");
     for (let i = 0; i < typeOptions.length; i++) {
@@ -51,6 +57,7 @@ document.getElementById("job-form").onsubmit = () => {
         isValid = false;
     }
 
+    // Validates If Date Isn't Offered
     let postDate = document.getElementById("postDate").value;
     if (postDate === "") {
         document.getElementById("err-postDate").style.display = "block";

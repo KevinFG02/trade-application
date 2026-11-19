@@ -11,11 +11,13 @@
     <link rel="stylesheet" href="styles/home.css">
 </head>
 <body>
+    <!-- Header -->
     <%- include('partials/header') %>
 
     <div id="main">
         <h1>Add a Job Posting</h1>
 
+        <!-- Add Job Form -->
         <form action="/submit-job" method="post" id="job-form" novalidate>
 
             <fieldset id="title-sect">

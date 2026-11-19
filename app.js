@@ -1,15 +1,24 @@
+// Imports express
 import express from 'express';
+
+// Imports mysql2
 import mysql2 from 'mysql2';
+
+// Imports .env
 import dotenv from 'dotenv';
 dotenv.config();
+
+// Imports express-session
 import session from 'express-session';
 
+// Express Application
 const app = express();
 
 const PORT = 3008;
 
 app.locals.isAdmin = false;
 
+// Connection Pool
 const pool = mysql2.createPool({
     // These values come from the .env file
     host: process.env.DB_HOST,
@@ -29,6 +38,7 @@ app.use(express.urlencoded({extended: true}));
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
 
+// Session Middleware
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -36,6 +46,7 @@ app.use(session({
     cookie: { maxAge: 1000 * 60 * 60 }
 }));
 
+// requiredLogin Middleware
 function requireLogin(req, res, next) {
     if (req.session.loggedIn) {
         next();
@@ -54,6 +65,7 @@ app.get('/login', (req, res) => {
     res.render('login', { error: null });
 })
 
+// Processes And Verifies The Login
 app.post('/login', (req, res) => {
     
     const username = req.body.username;
@@ -71,6 +83,7 @@ app.post('/login', (req, res) => {
     }
 });
 
+// Ends Session And Sents User Back To Home Page
 app.get('/logout', (req, res) => {
     req.session.destroy(() => {
         app.locals.isAdmin = false;
@@ -125,7 +138,9 @@ app.post('/submit-job', async(req, res) => {
     }
 });
 
+// Jobs Route
 app.get('/jobs', async (req, res) => {
+    // Returns A Query With The Necessary Data
     try {
         const [jobs] = await pool.query(
             `SELECT * FROM active_postings
@@ -134,11 +149,13 @@ app.get('/jobs', async (req, res) => {
         );
         res.render('jobs', { jobs });
     } catch (err) {
+        // Returns Error
         console.error('Error loading jobs:', err);
         res.status(500).send('Sorry, we could not load the job listings. Please try again later.');
     }
 });
 
+// Starts Server From Port
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
 });
