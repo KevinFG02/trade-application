@@ -13,17 +13,23 @@
         <!-- Header -->
         <%- include('partials/header') %>
 
-        <!-- Job Details -->
-        <h1>Job Posted Successfully</h1>
-        <p>Job Title: <%= job.title %></p>
-        <p>Company: <%= job.company %></p>
-        <p>Trade Area: <%= job.tradeArea %></p>
-        <p>Location: <%= job.location %></p>
-        <p>Type: <%= job.jobType %></p>
-        <p>Hours: <%= job.hourType %></p>
-        <p>Post Date: <%= job.postDate %></p>
-        <p>Expires: <%= job.expirationDate %></p>
-        <p>Application Link: <a href="<%= job.applicationUrl %>" target="_blank">Apply Now</a></p>
+        <div id="confirm-card">
+            <h1>Job Posted Successfully</h1>
+            <p><strong>Job Title:</strong> <%= job.title %></p>
+            <p><strong>Company:</strong> <%= job.company %></p>
+            <p><strong>Trade Area:</strong> <%= job.tradeArea %></p>
+            <p><strong>Location:</strong> <%= job.location %></p>
+            <p><strong>Type:</strong> <%= job.jobType %></p>
+            <p><strong>Hours:</strong> <%= job.hourType %></p>
+            <p><strong>Post Date:</strong> <%= job.postDate %></p>
+            <p><strong>Expires:</strong> <%= job.expirationDate %></p>
+            <p><strong>Application Link:</strong> <a href="<%= job.applicationUrl %>" target="_blank">Apply Now</a></p>
+
+            <div id="confirm-links">
+                <a href="/add-job">Add another job</a>
+                <a href="/jobs">View all jobs</a>
+            </div>
+        </div>
 
     </body>
 </html>

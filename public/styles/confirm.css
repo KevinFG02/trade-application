@@ -1,0 +1,45 @@
+body {
+    background-color: #f3f6f3;
+}
+
+#confirm-card {
+    width: 90%;
+    max-width: 550px;
+    margin: 2rem auto;
+    padding: 1.5rem 2rem;
+    box-sizing: border-box;
+    background-color: white;
+    border-top: 5px solid var(--primary);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#confirm-card h1 {
+    margin: 0 0 1rem 0;
+    text-align: center;
+    color: var(--primary);
+}
+
+#confirm-card p {
+    margin: 0;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+#confirm-card strong {
+    display: inline-block;
+    min-width: 140px;
+    color: #444;
+}
+
+#confirm-card a {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+#confirm-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.2rem;
+}
