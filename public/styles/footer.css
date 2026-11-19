@@ -1,0 +1,31 @@
+footer {
+    display: grid;
+    grid-template-areas: 
+    "Area 1" "Area 2" "Area 3";
+    grid-template-columns: 1fr 2fr 1fr;
+    background-color: var(--primary);
+    color: white;
+    padding: .5rem;
+}
+
+footer div ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 auto 0 auto;
+}
+
+footer div h3 {
+    margin: 1rem 0 0 0;
+    font-size: .8rem;
+    text-align: center;
+}
+
+.footerLinks {
+    text-decoration: none;
+    color: white;
+    font-size: .7rem;
+}
+
+.footerLinks:hover {
+    text-decoration: underline;
+}
