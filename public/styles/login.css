@@ -88,3 +88,8 @@ button {
 #alt-link a {
     color: var(--primary);
 }
+
+.login-error {
+    color: red;
+    font-weight: bold;
+}

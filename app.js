@@ -1,8 +1,8 @@
 import express from 'express';
 import mysql2 from 'mysql2';
 import dotenv from 'dotenv';
-
 dotenv.config();
+import session from 'express-session';
 
 const app = express();
 
@@ -29,31 +29,57 @@ app.use(express.urlencoded({extended: true}));
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
 
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 1000 * 60 * 60 }
+}));
+
+function requireLogin(req, res, next) {
+    if (req.session.loggedIn) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+}
+
 // Define routes for the application
 app.get('/', (req, res) => {
     res.render('home');
 });
 
-// Render the login page
+// Add a route for the login page
 app.get('/login', (req, res) => {
-    res.render('login');
-});
+    res.render('login', { error: null });
+})
 
 app.post('/login', (req, res) => {
-    if (req.body.password === "admin") {
-        app.locals.isAdmin = true;
-        return res.redirect('/');
+    
+    const username = req.body.username;
+    const password = req.body.password;
+
+    if (username === process.env.ADMIN_USER &&
+        password === process.env.ADMIN_PASSWORD) {
+
+            req.session.loggedIn = true;
+            app.locals.isAdmin = true;
+
+            res.redirect('/');
+    } else {
+        res.render('login', { error: 'Invalid username or password'});
     }
-    res.redirect('/');
 });
 
 app.get('/logout', (req, res) => {
-    app.locals.isAdmin = false;
-    res.redirect('/');
+    req.session.destroy(() => {
+        app.locals.isAdmin = false;
+        res.redirect('/');
+    });
 });
 
 // Render the add-job page
-app.get('/add-job', (req, res) => {
+app.get('/add-job', requireLogin, (req, res) => {
     res.render('add-job');
 });
 

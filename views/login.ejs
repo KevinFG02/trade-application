@@ -20,7 +20,11 @@
                 <input type="text" id="username" name="username"> <br>
                 <label>Password: </label>
                 <input type="text" id="password" name="password"> <br>
-                <span class="error" id="err-login">Username or Password is incorrect</span>
+                
+                 <!-- Only show the error message if there is one -->
+                <% if (error) { %>
+                    <p class="login-error"><%= error %></p>
+                <% } %>
             </fieldset>
 
             <button type="submit" id="submit">Login</button>
