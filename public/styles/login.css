@@ -10,17 +10,6 @@ body {
     margin: 0;
 }
 
-#logo {
-    max-width: 10%;
-}
-
-#login-img {
-    width: 1.5rem;
-    height: 1.5rem;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
 nav {
     background-color: var(--primary);
     display: flex;
