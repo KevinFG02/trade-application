@@ -31,7 +31,7 @@ body {
     font-weight: 600;
 }
 
-#job-form input, #job-form select {
+#job-form input:not([type="radio"]), #job-form select {
     width: 100%;
     box-sizing: border-box;
     padding: 0.6rem;
